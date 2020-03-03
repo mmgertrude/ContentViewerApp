@@ -12,11 +12,9 @@ namespace DataAccess.Migrations
                 {
                     PageId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PageTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PageTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PageStatus = table.Column<int>(nullable: false),
-                    PageNo = table.Column<int>(nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

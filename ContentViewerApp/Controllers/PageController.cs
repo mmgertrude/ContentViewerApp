@@ -53,7 +53,7 @@ namespace ContentViewerApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PageTitle,PageStatus,PageNo,PageId,Description,Content")] Page page)
+        public async Task<IActionResult> Create([Bind("PageTitle,PageStatus,PageId,Content")] Page page)
         {
             if (ModelState.IsValid)
             {
@@ -85,13 +85,9 @@ namespace ContentViewerApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PageTitle,PageStatus,PageNo,PageId,Description,Content")] Page page)
+        public async Task<IActionResult> Edit( [Bind("PageTitle,PageStatus,PageId,Content")] Page page)
         {
-            if (id != page.PageId)
-            {
-                return NotFound();
-            }
-
+            
             if (ModelState.IsValid)
             {
                 try
