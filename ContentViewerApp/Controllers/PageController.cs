@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Models;
 
+
+
 namespace ContentViewerApp.Controllers
 {
     public class PageController : Controller
@@ -18,12 +20,24 @@ namespace ContentViewerApp.Controllers
             _context = context;
         }
 
-        // GET: Page
+        // GET: Page (gets all pages active and inactive)
         public async Task<IActionResult> Index()
         {
             return View(await _context.Pages.ToListAsync());
+
         }
 
+
+        //GET: Page (gets only active pages)
+        public async Task<IActionResult> ActivePages()
+        {
+
+            var ActiveOnes = await _context.Pages.Where(x => x.PageStatus == Status.Active).ToListAsync();
+            return View(ActiveOnes);
+          
+        }
+
+        
         // GET: Page/Details/5
         public async Task<IActionResult> Details(int? id)
         {

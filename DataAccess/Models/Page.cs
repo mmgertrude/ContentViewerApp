@@ -17,18 +17,15 @@ namespace DataAccess.Models
         [EnumDataType(typeof(Status))]
         [Display(Name = "Page Status")]
         public Status PageStatus { get; set; }
-
-               
+     
         [Key]
         [Display(Name = "Page Id")]
         public int PageId { get; set; }
-
 
         [Required]
         [Display(Name = "Content")]
         [Column(TypeName = "nvarchar(max)")]
         public string Content { get; set; }
-
 
     }
 
