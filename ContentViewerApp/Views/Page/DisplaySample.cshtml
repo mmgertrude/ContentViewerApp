@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<DataAccess.Models.Page>
+@*
+    @{
+        var i = 0;
+        while (i < @Model.Count())
+        {
+            <p>Line @i</p>
+            i += 1;
+        }
+    }
 
-
-@Model.Count()
-
-@foreach (var PageToDisplay in Model)
-{
-    <partial name="_PageDetail" model="PageToDisplay" />
-
-}
+*@
 
