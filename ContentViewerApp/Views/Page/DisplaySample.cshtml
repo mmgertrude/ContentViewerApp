@@ -1,44 +1,11 @@
 ﻿@model IEnumerable<DataAccess.Models.Page>
 
-@{
-    ViewData["Title"] = "Index";
+
+@Model.Count()
+
+@foreach (var PageToDisplay in Model)
+{
+    <partial name="_PageDetail" model="PageToDisplay" />
+
 }
 
-<h1>Sample</h1>
-@Html.DisplayNameFor(model => model.PageStatus)
-@Html.DisplayNameFor(model => model.PageTitle)
-
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PageTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PageStatus)
-            </th>
-
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PageTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PageStatus)
-                </td>
-
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.PageId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PageId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PageId">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>

@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<DataAccess.Models.Page>
 
+@Model.Count()
 
-
-@foreach (var PageToDisplay in Model) 
+@foreach (var PageToDisplay in Model)
 {
-    <partial name="_PageDetail" model="PageToDisplay"/>  
-} 
+    <partial name="_PageDetail" model="PageToDisplay" />
+
+}
 
 
