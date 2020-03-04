@@ -1,0 +1,10 @@
+﻿@model IEnumerable<DataAccess.Models.Page>
+
+
+
+@foreach (var PageToDisplay in Model) 
+{
+    <partial name="_PageDetail" model="PageToDisplay"/>  
+} 
+
+
