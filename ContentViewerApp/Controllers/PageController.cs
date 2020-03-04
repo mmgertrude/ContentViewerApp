@@ -36,6 +36,7 @@ namespace ContentViewerApp.Controllers
           
         }
 
+        //Display active pages one at a time after set time interval
         public async Task<IActionResult> NextPage(int id)
         {   
             var ActiveOnes = await _context.Pages.Where(x => x.PageStatus == Status.Active).OrderBy(x => x.PageId).ToListAsync();
@@ -46,11 +47,11 @@ namespace ContentViewerApp.Controllers
             } 
             else
             {
-                foreach(var a in ActiveOnes)
+                foreach(var ToShow in ActiveOnes)
                 {
-                    if (a.PageId > id)
+                    if (ToShow.PageId > id)
                     {
-                        model = a;
+                        model = ToShow;
                         break;
                     }
                 }
@@ -59,7 +60,7 @@ namespace ContentViewerApp.Controllers
                     model = ActiveOnes.First();
                 }
             }
-            Debug.WriteLine(model.PageId);
+            
             return PartialView(model);
         }
 
