@@ -1,13 +1,90 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #f2f6e9;
+}
+/*--- navigation bar ---*/
+.navbar {
+    /*background: #6ab446; */
+    background: #76BD17;
+}
+
+.nav-link,
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-link {
+    margin-right: 1em !important;
+}
+
+    .nav-link:hover {
+        color: #000;
+    }
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.header {
+    
+    background-image: url('../images/innovit1.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+
+.overlay {
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.description {
+    left: 50%;
+    position: absolute;
+    top: 12%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+}
+
+    .description h1 {
+        color: #6ab446;
+    }
+
+    .description p {
+        color: #fff;
+        font-size: 1.3rem;
+        line-height: 1.5;
+    }
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+    /******************************************************************************************************/
+    /*Default CSS
 a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
-/* Provide sufficient contrast against white background */
+/* Provide sufficient contrast against white background 
 a {
   color: #0366d6;
 }
@@ -25,7 +102,7 @@ a {
 }
 
 /* Sticky footer styles
--------------------------------------------------- */
+-------------------------------------------------- 
 html {
   font-size: 14px;
 }
@@ -52,14 +129,14 @@ button.accept-policy {
 }
 
 /* Sticky footer styles
--------------------------------------------------- */
+-------------------------------------------------- 
 html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
+  /* Margin bottom by footer height 
   margin-bottom: 60px;
 }
 .footer {
@@ -67,5 +144,7 @@ body {
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px; /* Vertically center the text there 
 }
+
+end of default CSS*/

@@ -1,10 +1,33 @@
 ﻿@model IEnumerable<DataAccess.Models.Page>
 
+@* <h3>Total Active Pages are @Model.Count()</h3> *@
+
+<div class="activepage">
+
+</div>
 
 
-@foreach (var PageToDisplay in Model) 
-{
-    <partial name="_PageDetail" model="PageToDisplay"/>  
-} 
+<script>
 
+    var current = 0;
 
+    function getNextPage() {
+        $.ajax({
+            url: '/Page/NextPage/' + current,
+            success: function (data) {
+                $('.activepage').html(data);
+                current = parseInt($('.activepage #PageId').val());
+            },
+            cache: false
+        });
+    }
+
+    $(document).ready(function () {
+        getNextPage();
+
+        setInterval(function () {
+            getNextPage();
+        }, 3000);
+    });
+
+</script>

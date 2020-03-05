@@ -1,8 +1,9 @@
 ﻿@model DataAccess.Models.Page
 
-<div>
-    
- 
+
+<div id="main" class="activepages">
+
+
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PageId)
@@ -30,7 +31,8 @@
             @Html.DisplayNameFor(model => model.Content)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Content)
+            @Html.Raw(Model.Content)
         </dd>
     </dl>
 </div>
+

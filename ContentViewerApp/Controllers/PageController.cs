@@ -6,8 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Models;
-
-
+using System.Diagnostics;
 
 namespace ContentViewerApp.Controllers
 {
@@ -37,7 +36,46 @@ namespace ContentViewerApp.Controllers
           
         }
 
-        
+        //Display active pages one at a time after set time interval
+        public async Task<IActionResult> NextPage(int id)
+        {   
+            var ActiveOnes = await _context.Pages.Where(x => x.PageStatus == Status.Active).OrderBy(x => x.PageId).ToListAsync();
+            Page model = null;
+            if (id == 0)
+            {
+                model = ActiveOnes.First();
+            } 
+            else
+            {
+                foreach(var ToShow in ActiveOnes)
+                {
+                    if (ToShow.PageId > id)
+                    {
+                        model = ToShow;
+                        break;
+                    }
+                }
+                if (model == null)
+                {
+                    model = ActiveOnes.First();
+                }
+            }
+            
+            return PartialView(model);
+        }
+
+        //GET: Page (gets only active pages)
+        public async Task<IActionResult> DisplaySample()
+        {
+
+            var ActiveOnes = await _context.Pages.Where(x => x.PageStatus == Status.Active).ToListAsync();
+            return View(ActiveOnes);
+
+        }
+
+
+
+
         // GET: Page/Details/5
         public async Task<IActionResult> Details(int? id)
         {
