@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<DataAccess.Models.Page>
-
 @* <h3>Total Active Pages are @Model.Count()</h3> *@
 
-<div class="activepage">
+<div id="activepage">
 
 </div>
 
@@ -15,8 +14,8 @@
         $.ajax({
             url: '/Page/NextPage/' + current,
             success: function (data) {
-                $('.activepage').html(data);
-                current = parseInt($('.activepage #PageId').val());
+                $('#activepage').html(data);
+                current = parseInt($('#activepage #PageId').val());
             },
             cache: false
         });
@@ -31,3 +30,37 @@
     });
 
 </script>
+
+<script>
+    $('#toggle_fullscreen').on('click', function () {
+        // if already full screen; exit
+        // else go fullscreen
+        if (
+            document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.mozFullScreenElement ||
+            document.msFullscreenElement
+        ) {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        } else {
+            element = $('#activepage').get(0);
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+        }
+    });
+    </script>

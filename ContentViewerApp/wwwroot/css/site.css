@@ -13,6 +13,11 @@ body {
     background: #76BD17;
 }
 
+#activepage {
+    background-color: #FFF;
+    padding: 40px;
+}
+
 .nav-link,
 .navbar-brand {
     color: #fff;

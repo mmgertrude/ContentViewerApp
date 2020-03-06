@@ -2,7 +2,10 @@
 
 @Html.HiddenFor(model => model.PageId)
 
-
+ @Html.Raw(Model.Content)
+    
+                        
+@*
     <div class="col-lg-12">
 
 
@@ -51,3 +54,4 @@
             </div>
         </div>
     </div>
+*@
