@@ -63,7 +63,9 @@
 <script>
     $().ready(function() {
         $('textarea').tinymce({
-            //script_url : '../js/tinymce/jscripts/tiny_mce/tiny_mce.js',
+            toolbar: "image",
+            plugins: "image imagetools",
+            imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions"
 
         });
     });
